@@ -7,6 +7,11 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+/**
+ * Permet la lecture d'un fichier.
+ * @author Argragas
+ *
+ */
 public class Fichier {
 
 

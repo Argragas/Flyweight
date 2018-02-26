@@ -3,45 +3,61 @@ package exemple;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Fabrique de la classe {@link ObjetSpatial}.
+ * @author Argragas
+ *
+ */
 public class PoidsMoucheFactory {
 
 
 	private Map<String,IObjetSpatial> listObjSpa = new HashMap<String,IObjetSpatial>();
+	private Map<String, IObjetSpatial> listObjSpaNonPartage = new HashMap<String,IObjetSpatial>();;
 
-
-	public void initFactory(){
-
-
-	}
 
 	/**
-	 * Retourne un "PoidsMouche" partagé
-	 * Si la valeur passé en paramètre
-	 * correspond à un "PoidsMouche" partagé déjà existant,
-	 * on le retourne.
-	 * Sinon on crée une nouvelle instance,
-	 * on la stocke et on la retourne.
-	 * @param pValeur Valeur du "PoidsMouche" désiré
-	 * @return un "PoidsMouche"
+	 * Instancie un  {@link IObjetSpatial} seulement si listObjSpa ne contient pas une instance avec le m�me pays et l'ajoute � sa liste d'{@link ObjetSpatialPartage}..
+	 * @param pValeur
+	 * 
 	 */
-	public IObjetSpatial getObjetSpatial(String pValeur) {
+	public void getObjetSpatial(String pValeur) {
 
-		if(listObjSpa.containsKey(pValeur)) {
-			// System.out.println("--> Retourne un PoidsMouche (" + pValeur + ") partagé déjà existant");
-			return listObjSpa.get(pValeur);
-		}
-		else {
-			// System.out.println("--> Retourne un PoidsMouche (" + pValeur +  ") partagé non déjà existant");
+		if(!listObjSpa.containsKey(pValeur)) {
 			final IObjetSpatial nouveauIObjetSpatial = new ObjetSpacialPartage(pValeur);
-			listObjSpa.put(pValeur, nouveauIObjetSpatial);
-
-			return nouveauIObjetSpatial;
+			listObjSpa.put(pValeur, nouveauIObjetSpatial);	
 		}
 	}
 
 
+/**
+ * Instancie un {@link ObjetSpacialNonPartage} et l'ajoute � sa liste d'{@link ObjetSpatialNonPartage}.
+ * @param pays
+ * @param commentaire
+ *
+ */
+	public void getObjetSpatialNonPartage(String pays, String commentaire) {
+		 listObjSpaNonPartage.put(pays, new ObjetSpacialNonPartage( pays, commentaire));
+		
+	}
+	
+	
 	public Map<String,IObjetSpatial> getListObjSpa() {
 		return listObjSpa;
 	}
 
+
+	public Map<String, IObjetSpatial> getListObjSpaNonPartage() {
+		return listObjSpaNonPartage;
+	}
+
+	public void setListObjSpaNonPartage(Map<String, IObjetSpatial> listObjSpaNonPartage) {
+		this.listObjSpaNonPartage = listObjSpaNonPartage;
+	}
+
+	public void setListObjSpa(Map<String, IObjetSpatial> listObjSpa) {
+		this.listObjSpa = listObjSpa;
+	}
+
+	
+	
 }
