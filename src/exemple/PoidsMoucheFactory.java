@@ -22,9 +22,8 @@ public class PoidsMoucheFactory {
 	 */
 	public void getObjetSpatial(String pValeur) {
 
-		if(!listObjSpa.containsKey(pValeur)) {
-			final IObjetSpatial nouveauIObjetSpatial = new ObjetSpacialPartage(pValeur);
-			listObjSpa.put(pValeur, nouveauIObjetSpatial);	
+		if(!listObjSpa.containsKey(pValeur)) {		
+			listObjSpa.put(pValeur, new ObjetSpacialPartage(pValeur));	
 		}
 	}
 
