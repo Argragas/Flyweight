@@ -24,7 +24,7 @@ public class FlyweightPatternMain {
 
 	
 	/**
-	 * Métode main du projet.
+	 * MÃ©tode main du projet.
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -38,8 +38,8 @@ public class FlyweightPatternMain {
 	}
 	
 	/**
-	 * Traite le fichier dont le chemin est donné en paramètre.
-	 * Chaque ligne du fichier représente un IObjetSpatial. Pour chaque ligne, la fabrique instancie un nouvel objet seulement si sa liste d'IObjetSpatial ne contient aucune instance dont le paramètre pays est égal au paramètre donné.
+	 * Traite le fichier dont le chemin est donnÃ© en paramÃ¨tre.
+	 * Chaque ligne du fichier reprÃ©sente un IObjetSpatial. Pour chaque ligne, la fabrique instancie un nouvel objet seulement si sa liste d'IObjetSpatial ne contient aucune instance dont le paramÃ¨tre pays est Ã©gal au paramÃ¨tre donnÃ©.
 	 * @param filePath
 	 */
 	public static void testByFile(String filePath) {
@@ -63,7 +63,7 @@ public class FlyweightPatternMain {
 				endTime = System.nanoTime();
 				
 				
-				System.out.println("Méthode avec FleyWeight : " + (endTime - startTime) + " ns");	
+				System.out.println("MÃ©thode avec FleyWeight : " + (endTime - startTime) + " ns");	
 
 
 				startTime = System.nanoTime();
@@ -74,11 +74,11 @@ public class FlyweightPatternMain {
 				endTime = System.nanoTime();
 				
 				
-				System.out.println("méthode classique : " + (endTime - startTime) + " ns");
+				System.out.println("mÃ©thode classique : " + (endTime - startTime) + " ns");
 				System.out.println("--------------------");
 				System.out.println("Taille Map : "+flyweightFactory.getListObjSpa().size());
 				System.out.println("Taille MapBis : "+ listLourde.size());
-				System.out.println("Taille MapNonPartagé : "+ flyweightFactory.getListObjSpaNonPartage().size());
+				System.out.println("Taille MapNonPartage : "+ flyweightFactory.getListObjSpaNonPartage().size());
 				System.out.println("********************");
 		
 	}

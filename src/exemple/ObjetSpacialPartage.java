@@ -1,7 +1,7 @@
 package exemple;
 
 /**
- * {@link ObjetSpatial} pouvant être partagé.
+ * {@link ObjetSpatial} pouvant Ã¨tre partagÃ©.
  * @author Argragas
  *
  */

@@ -16,7 +16,7 @@ public class PoidsMoucheFactory {
 
 
 	/**
-	 * Instancie un  {@link IObjetSpatial} seulement si listObjSpa ne contient pas une instance avec le même pays et l'ajoute à sa liste d'{@link ObjetSpatialPartage}..
+	 * Instancie un  {@link IObjetSpatial} seulement si listObjSpa ne contient pas une instance avec le mÃªme pays et l'ajoute Ã  sa liste d'{@link ObjetSpatialPartage}.
 	 * @param pValeur
 	 * 
 	 */
@@ -30,7 +30,7 @@ public class PoidsMoucheFactory {
 
 
 /**
- * Instancie un {@link ObjetSpacialNonPartage} et l'ajoute à sa liste d'{@link ObjetSpatialNonPartage}.
+ * Instancie un {@link ObjetSpacialNonPartage} et l'ajoute Ã  sa liste d'{@link ObjetSpatialNonPartage}.
  * @param pays
  * @param commentaire
  *

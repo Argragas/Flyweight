@@ -2,8 +2,8 @@ package exemple;
 
 
 /**
- * Classe représentant un objet spatial.
- * Implémente l'interface {@link IObjetSpatial}.
+ * Classe reprï¿½sentant un objet spatial.
+ * ImplÃ©mente l'interface {@link IObjetSpatial}.
  * @author Argragas
  *
  */
