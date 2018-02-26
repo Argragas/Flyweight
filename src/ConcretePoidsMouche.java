@@ -11,6 +11,6 @@ public class ConcretePoidsMouche implements PoidsMouche {
     }
 
     public void afficher(String pContexte) {
-        System.out.println("PoidsMouche avec la valeur : " + valeur + " et contexte : " + pContexte);
+        System.out.println("PoidsMouche  avec la valeur : " + valeur + " et contexte : " + pContexte);
     }
 }
