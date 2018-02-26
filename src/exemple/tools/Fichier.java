@@ -1,4 +1,4 @@
-package exemple;
+package exemple.tools;
 
 import java.io.File;
 import java.util.List;

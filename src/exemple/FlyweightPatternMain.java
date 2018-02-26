@@ -4,7 +4,8 @@ package exemple;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import  exemple.Fichier;
+
+import exemple.tools.Fichier;
 
 public class FlyweightPatternMain {
 	
@@ -13,11 +14,11 @@ public class FlyweightPatternMain {
 	static List<IObjetSpatial> listLourde = new ArrayList<IObjetSpatial>();
 
 	public static void main(String[] args) {
-		System.out.println(" LET IT GO ");
+		
 		// Instancie la fabrique
-		testByFile("src\\resources\\OnOrbitByNorad.csv");
-		testByFile("src\\resources\\NotOnOrbitByNorad.csv");
-		testByFile("src\\resources\\ObjSpatial.csv");
+		testByFile("src\\exemple\\resources\\OnOrbitByNorad.csv");
+		testByFile("src\\exemple\\resources\\NotOnOrbitByNorad.csv");
+		testByFile("src\\exemple\\resources\\ObjSpatial.csv");
 		
 
 	}
