@@ -7,7 +7,7 @@ public class PoidsMouchesPartages implements PoidsMouche {
  private String valeur1;
  private String valeur2;
 
- public ConcretePoidsMouche(String pValeur1, String pValeur2) {
+ public void ConcretePoidsMouche(String pValeur1, String pValeur2) {
  valeur1 = pValeur1;
  valeur2 = pValeur2;
  }
