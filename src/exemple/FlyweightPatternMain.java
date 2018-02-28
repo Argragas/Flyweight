@@ -14,13 +14,13 @@ import exemple.tools.Fichier;
  */
 public class FlyweightPatternMain {
 	
-	static PoidsMoucheFactory flyweightFactory = new PoidsMoucheFactory();
+	private static PoidsMoucheFactory flyweightFactory = new PoidsMoucheFactory();
 
-	static List<IObjetSpatial> listLourde = new ArrayList<IObjetSpatial>();
-	static File file;
-	static List<String> lines;
-	static long startTime;
-	static long endTime;
+	private static List<IObjetSpatial> listLourde = new ArrayList<IObjetSpatial>();
+	private static File file;
+	private static List<String> lines;
+	private static long startTime;
+	private static long endTime;
 
 	
 	/**
@@ -42,7 +42,7 @@ public class FlyweightPatternMain {
 	 * Chaque ligne du fichier représente un IObjetSpatial. Pour chaque ligne, la fabrique instancie un nouvel objet seulement si sa liste d'IObjetSpatial ne contient aucune instance dont le paramètre pays est égal au paramètre donné.
 	 * @param filePath
 	 */
-	public static void testByFile(String filePath) {
+	private static void testByFile(String filePath) {
 		listLourde.clear();
 		//InitFichier
 				file = Fichier.getResource(filePath);
