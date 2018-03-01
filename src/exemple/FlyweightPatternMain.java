@@ -47,17 +47,19 @@ public class FlyweightPatternMain {
 		//InitFichier
 				file = Fichier.getResource(filePath);
 				lines = Fichier.readFile(file);
-
+				String[] tab;
 				
 				startTime = System.nanoTime();
 				// Here is the code to measure
 				for (String obj : lines) {
-					if (obj.split(",").length <= 4) {
-						flyweightFactory.getObjetSpatial(obj.split(",")[2]);
-					} else {						
-						flyweightFactory.getObjetSpatialNonPartage(obj.split(",")[2],obj.split(",")[4]);
-					}
-					
+					tab = obj.split(",");
+						IObjetSpatial objetSpatial = flyweightFactory.getObjetSpatial(tab[2],tab[0]);
+						//Le commentaire n'étant pas obligatoire une condition est necessaire afin de vérifier si il est null ou non
+						if (tab.length > 4) {
+							objetSpatial.formatDonnee(tab[1],tab[2],tab[4]);
+						} else {
+							objetSpatial.formatDonnee(tab[1],tab[2],null);
+						}				
 				}
 				// stop stopwatch
 				endTime = System.nanoTime();
@@ -69,17 +71,18 @@ public class FlyweightPatternMain {
 				startTime = System.nanoTime();
 				// Here is the code to measure
 				for (String objBis : lines) {
-					listLourde.add(new ObjetSpacialPartage(objBis.split(",")[2]));
+					listLourde.add(new ObjetSpacialDebris(objBis.split(",")[2]));
 				}
 				endTime = System.nanoTime();
 				
 				
 				System.out.println("méthode classique : " + (endTime - startTime) + " ns");
 				System.out.println("--------------------");
-				System.out.println("Taille Map : "+flyweightFactory.getListObjSpa().size());
-				System.out.println("Taille MapBis : "+ listLourde.size());
-				System.out.println("Taille MapNonPartage : "+ flyweightFactory.getListObjSpaNonPartage().size());
+				System.out.println("Taille Map : "+ listLourde.size());
+				System.out.println("Taille MapObjetSpatial : "+flyweightFactory.getListObjSpa().size());
+				System.out.println("nombre de debris : "+ flyweightFactory.getCompteur());
 				System.out.println("********************");
+				flyweightFactory.setCompteur(0);
 		
 	}
 }

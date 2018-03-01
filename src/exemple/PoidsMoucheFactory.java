@@ -9,54 +9,58 @@ import java.util.Map;
  *
  */
 public class PoidsMoucheFactory {
-
+private final String DEBRIS = "DEB";
+int compteur = 0;
 
 	private Map<String,IObjetSpatial> listObjSpa = new HashMap<String,IObjetSpatial>();
-	private Map<String, IObjetSpatial> listObjSpaNonPartage = new HashMap<String,IObjetSpatial>();;
+	
 
 
 	/**
 	 * Instancie un  {@link IObjetSpatial} seulement si listObjSpa ne contient pas une instance avec le même pays et l'ajoute à sa liste d'{@link ObjetSpatialPartage}.
 	 * @param pValeur
+	 * @param name 
 	 * 
 	 */
-	public void getObjetSpatial(String pValeur) {
+	public IObjetSpatial getObjetSpatial(String paysOrganisation, String name) {
 
-		if(!listObjSpa.containsKey(pValeur)) {		
-			listObjSpa.put(pValeur, new ObjetSpacialPartage(pValeur));	
+		if(!listObjSpa.containsKey(paysOrganisation)) {	
+			if (name.contains(DEBRIS)) {
+				listObjSpa.put(paysOrganisation, new ObjetSpacialDebris(paysOrganisation));	
+			} else {
+				listObjSpa.put(paysOrganisation, new ObjetSpatial(paysOrganisation));
+			}
+		}else {
+			if(DEBRIS.contains(name) &&!(listObjSpa.get(paysOrganisation) instanceof ObjetSpatial)){
+			listObjSpa.put(paysOrganisation,  new ObjetSpacialDebris(paysOrganisation));
 		}
+		}
+		nombreDebris(listObjSpa.get(paysOrganisation));
+		return listObjSpa.get(paysOrganisation) ;
 	}
 
-
-/**
- * Instancie un {@link ObjetSpacialNonPartage} et l'ajoute à sa liste d'{@link ObjetSpatialNonPartage}.
- * @param pays
- * @param commentaire
- *
- */
-	public void getObjetSpatialNonPartage(String pays, String commentaire) {
-		 listObjSpaNonPartage.put(pays, new ObjetSpacialNonPartage( pays, commentaire));
-		
+	public int nombreDebris(IObjetSpatial obj) {
+			if (obj.isDebris()) {
+				compteur++;
+			}		
+		return compteur;		
 	}
-	
-	
-	public Map<String,IObjetSpatial> getListObjSpa() {
+
+	public Map<String, IObjetSpatial> getListObjSpa() {
 		return listObjSpa;
 	}
 
-
-	public Map<String, IObjetSpatial> getListObjSpaNonPartage() {
-		return listObjSpaNonPartage;
-	}
-
-	public void setListObjSpaNonPartage(Map<String, IObjetSpatial> listObjSpaNonPartage) {
-		this.listObjSpaNonPartage = listObjSpaNonPartage;
-	}
 
 	public void setListObjSpa(Map<String, IObjetSpatial> listObjSpa) {
 		this.listObjSpa = listObjSpa;
 	}
 
-	
+	public int getCompteur() {
+		return compteur;
+	}
+
+	public void setCompteur(int compteur) {
+		this.compteur = compteur;
+	}
 	
 }

@@ -1,28 +1,36 @@
 package exemple;
 
-
 /**
- * Classe représentant un objet spatial.
- * Implémente l'interface {@link IObjetSpatial}.
+ * {@link IObjetSpatial} caractèrisant un débris.
  * @author Argragas
  *
  */
-public class ObjetSpatial implements IObjetSpatial{
+public class ObjetSpacialDebris implements IObjetSpatial {
 
-	
+
 	private String  paysOrganisation;
 	private String commentaire;
 	private String dateLancment;
 	private String numNorad;
 
 	
-	public ObjetSpatial() {
-		
+
+	public ObjetSpacialDebris(String pValeur) {
+		super();
+		this.setPaysOrganisation(pValeur);
+
 	}
 
 
-	public ObjetSpatial(String paysOrganisation) {
-		this.setPaysOrganisation(paysOrganisation);
+
+	public String getPaysOrganisation() {
+		return paysOrganisation;
+	}
+
+
+
+	public void setPaysOrganisation(String paysOrganisation) {
+		this.paysOrganisation = paysOrganisation;
 	}
 
 
@@ -31,17 +39,24 @@ public class ObjetSpatial implements IObjetSpatial{
 		return commentaire;
 	}
 
+
+
 	public void setCommentaire(String commentaire) {
 		this.commentaire = commentaire;
 	}
+
+
 
 	public String getDateLancment() {
 		return dateLancment;
 	}
 
+
+
 	public void setDateLancment(String dateLancment) {
 		this.dateLancment = dateLancment;
 	}
+
 
 
 	public String getNumNorad() {
@@ -49,31 +64,29 @@ public class ObjetSpatial implements IObjetSpatial{
 	}
 
 
+
 	public void setNumNorad(String numNorad) {
 		this.numNorad = numNorad;
 	}
 
-	public String getPaysOrganisation() {
-		return paysOrganisation;
-	}
-
-	public void setPaysOrganisation(String paysOrganisation) {
-		this.paysOrganisation = paysOrganisation;
-	}
 
 
 	@Override
 	public boolean isDebris() {
-		return false;
+		return true;
 	}
+
 
 
 	@Override
 	public void formatDonnee(String numNorad, String dateLancement, String commentaire) {
 		this.commentaire = commentaire;
 		this.dateLancment = dateLancement;
-		this.numNorad = numNorad;		
+		this.numNorad = numNorad;	
 	}
+
+
+
 
 
 }

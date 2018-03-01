@@ -7,7 +7,9 @@ package exemple;
  */
 public interface IObjetSpatial {
     
-public String getInfos();
-    
-    
+public boolean isDebris();
+
+public void formatDonnee(String numNorad, String dateLancement, String commentaire);
+
+  
 }
