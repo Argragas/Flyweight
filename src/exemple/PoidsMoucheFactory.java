@@ -39,11 +39,10 @@ int compteur = 0;
 		return listObjSpa.get(paysOrganisation) ;
 	}
 
-	public int nombreDebris(IObjetSpatial obj) {
+	private void nombreDebris(IObjetSpatial obj) {
 			if (obj.isDebris()) {
 				compteur++;
-			}		
-		return compteur;		
+			}				
 	}
 
 	public Map<String, IObjetSpatial> getListObjSpa() {
